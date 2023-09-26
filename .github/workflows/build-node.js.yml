@@ -19,20 +19,30 @@ jobs:
     steps:
     - name: Checkout source code
       uses: actions/checkout@v3
-      
+
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
         node-version: ${{ env.NODE_VERSION }}
-        
+
     - name: Install dependencies
       working-directory: codebase/rdicidr-0.1.0
       run: npm ci
-      
+
+    - name: Run Lint
+      working-directory: codebase/rdicidr-0.1.0
+      run: npm run lint
+
+    - name: Run Prettier
+      working-directory: codebase/rdicidr-0.1.0
+      run: npm run prettier
+
+    - name: Run tests
+      working-directory: codebase/rdicidr-0.1.0
+      env:
+        CI: 'true'
+      run: npm test
+
     - name: Bulid Node.js App
       working-directory: codebase/rdicidr-0.1.0
       run: npm run build
-    
-    - name: Run tests
-      working-directory: codebase/rdicidr-0.1.0
-      run: npm test
