@@ -1,5 +1,4 @@
-# DevOpsChallenge
-# LabsDemo
 
+# FullStack Job Interview: DevOpsChallenge
 
-This repository will stay public until the challenge that it was used for is reviewed, and then I will either lock or delete it.
+Task: Fix, Build Javascript application from given source code and Deploy to AWS as a life website.
